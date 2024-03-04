@@ -1,5 +1,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using NLog;
+using NLog.Extensions.Logging;
 using ProjectBlog.BLL;
 using ProjectBlog.BLL.Services;
 using ProjectBlog.DAL;
@@ -50,6 +52,12 @@ namespace ProjectBlog
                 .AddTransient<IPostService, PostService>()
                 .AddTransient<ITagService, TagService>()
                 .AddTransient<IRoleService, RoleService>();
+
+            builder.Logging
+                .ClearProviders()
+                .SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace)
+                .AddConsole()
+                .AddNLog("nlog");
 
             var app = builder.Build();
 
