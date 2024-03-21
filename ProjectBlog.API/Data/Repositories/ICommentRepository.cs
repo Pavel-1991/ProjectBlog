@@ -1,4 +1,4 @@
-﻿using ProjectBlog.DAL.Models.Response;
+﻿using ProjectBlog.API.Data.Models.Response;
 
 namespace ProjectBlog.API.Data.Repositories
 {
